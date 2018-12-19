@@ -592,6 +592,24 @@ describe('KnormSoftDelete', () => {
           [{ id: 1 }, { id: 2 }]
         );
       });
+
+      it('includes rows where deleted is null', async () => {
+        await new Query(User).insert(new User({ id: 3, name: 'three' }));
+        await new Query(User).where({ id: 1 }).delete();
+        await new Query(User).update(
+          { deleted: null },
+          {
+            where: {
+              id: 3
+            }
+          }
+        );
+        await expect(
+          new Query(User).fetch(),
+          'to be fulfilled with sorted rows satisfying',
+          [{ id: 2 }, { id: 3 }]
+        );
+      });
     });
 
     describe('Query.prototype.update', () => {
