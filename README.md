@@ -7,7 +7,4 @@
 
 Soft-delete plugin for [knorm](https://www.npmjs.com/package/knorm).
 
-## [Documentation](https://knorm.netlify.com/plugins/soft-delete.html)
-
-View the docs on @knorm/knorm's documentation site
-[here](https://knorm.netlify.com/plugins/soft-delete.html).
+## Moved to https://github.com/knorm/knorm/tree/master/packages/soft-delete
